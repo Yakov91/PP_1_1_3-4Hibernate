@@ -7,15 +7,13 @@ import jm.task.core.jdbc.util.Util;
 
 public class Main {
     public static void main(String[] args) {
-        Util.getConnection();
-        UserDao userDao = new UserDaoJDBCImpl();
-        userDao.createUsersTable();
-        userDao.saveUser("Ivan", "Ivanov", (byte) 22);
-        userDao.saveUser("Piter", "Petrov", (byte) 26);
-        userDao.saveUser("Bob", "Steven", (byte) 33);
-        userDao.saveUser("Jack", "Vorobey", (byte) 43);
-        System.out.println(userDao.getAllUsers());
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+        UserServiceImpl userService = new UserServiceImpl();
+        userService.createUsersTable();
+        userService.saveUser("Ivan", "Ivanov", (byte) 22);
+        userService.saveUser("Piter", "Petrov", (byte) 26);
+        userService.saveUser("Bob", "Steven", (byte) 33);
+        userService.saveUser("Jack", "Vorobey", (byte) 43);
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
     }
 }

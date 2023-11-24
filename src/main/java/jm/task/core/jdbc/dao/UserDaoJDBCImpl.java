@@ -18,11 +18,6 @@ public class UserDaoJDBCImpl implements UserDao {
                             "`LastName` VARCHAR(45) NOT NULL," +
                             "`age` INT NOT NULL )");
 
-//                    "CREATE TABLE IF NOT EXISTS users.'users' " +
-//                    "('id' BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,"
-//                    + " 'name' VARCHAR(45) NOT NULL, 'lastName' VARCHAR(45) NOT NULL,"
-//                    + " 'age' TINYINT NOT NULL )");
-
                         connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -32,7 +27,6 @@ public class UserDaoJDBCImpl implements UserDao {
                 ex.printStackTrace();
             }
         }
-
     }
 
     public void dropUsersTable() {
@@ -47,7 +41,6 @@ public class UserDaoJDBCImpl implements UserDao {
                 ex.printStackTrace();
             }
         }
-
     }
 
     public void saveUser(String name, String lastName, byte age) {
