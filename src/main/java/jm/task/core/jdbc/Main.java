@@ -13,7 +13,8 @@ public class Main {
         userService.saveUser("Piter", "Petrov", (byte) 26);
         userService.saveUser("Bob", "Steven", (byte) 33);
         userService.saveUser("Jack", "Vorobey", (byte) 43);
+        System.out.println(userService.getAllUsers());
         userService.cleanUsersTable();
-        userService.dropUsersTable();
+     //   userService.dropUsersTable();
     }
 }

@@ -2,14 +2,13 @@ package jm.task.core.jdbc.util;
 
 import org.hibernate.SessionFactory;
 import jm.task.core.jdbc.model.User;
-import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
-import javax.imageio.spi.ServiceRegistry;
-import java.util.Properties;
 
+import java.util.Properties;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -38,9 +37,6 @@ public class Util {
 
     private static SessionFactory sessionFactory;
 
-    private Util() {
-    }
-
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
@@ -58,12 +54,12 @@ public class Util {
                 configuration.setProperties(properties);
                 configuration.addAnnotatedClass(User.class);
 
-                StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
-                e.printStackTrace();
+                e.getStackTrace();
             }
         }
 
